@@ -4,11 +4,23 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	char src[] = "The worst things to eat before you sleep";
-	char dst[100];
+	FILE* fp;
+	char str[100];
+	int i;
 	
-	strcpy(dst, src);
-	printf("copied string : %s\n", dst);
+	//1. open file
+	fp = fopen("sample.txt","w");
+	
+	//2. write file
+	for(i=0;i<3;i++)
+	{
+		printf("input a word : ");
+		scanf("%s", str);
+		fprintf(fp, "%s\n", str);
+	}
+	
+	//3. close file
+	fclose(fp);
 	
 	system("PAUSE");
 	return 0;
