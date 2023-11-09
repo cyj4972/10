@@ -4,22 +4,20 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	FILE* fp;
-	char str[100];
-	int i;
-	
-	//1. open file
-	fp = fopen("sample.txt","w");
-	
-	//2. write file
-	for(i=0;i<3;i++)
+	FILE* fp = NULL;
+	char c;
+	fp = fopen("sample.txt", "r");
+	if(fp == NULL)
 	{
-		printf("input a word : ");
-		scanf("%s", str);
-		fprintf(fp, "%s\n", str);
+		printf("failed to open\n");
+		return 0;
+	}
+	//한글자 읽은 것이 파일의 마지막이 아니면 
+	while((c=fgetc(fp)) != EOF)
+	{
+		putchar(c);		//한 글자 출력 
 	}
 	
-	//3. close file
 	fclose(fp);
 	
 	system("PAUSE");
