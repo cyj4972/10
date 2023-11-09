@@ -4,22 +4,9 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	FILE* fp = NULL;
-	char c;
-	fp = fopen("sample.txt", "r");
-	if(fp == NULL)
-	{
-		printf("failed to open\n");
-		return 0;
-	}
-	//한글자 읽은 것이 파일의 마지막이 아니면 
-	while((c=fgetc(fp)) != EOF)
-	{
-		putchar(c);		//한 글자 출력 
-	}
+	char str[30] = "happy C programming";
 	
-	fclose(fp);
-	
+	printf("문자열 \"%s\"의 길이 : %i", str, strlen(str));
 	system("PAUSE");
 	return 0;
 }
